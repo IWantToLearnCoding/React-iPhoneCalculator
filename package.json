@@ -1,0 +1,27 @@
+{
+  "name": "react-iphone-calculator",
+  "version": "1.0.0",
+  "description": "iphone calculator with react and browserify",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IWantToLearnCoding/React-iPhoneCalculator.git"
+  },
+  "keywords": [
+    "react",
+    "browserify"
+  ],
+  "author": "vineet kapoor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IWantToLearnCoding/React-iPhoneCalculator/issues"
+  },
+  "homepage": "https://github.com/IWantToLearnCoding/React-iPhoneCalculator#readme",
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "exorcist": "^0.4.0"
+  }
+}

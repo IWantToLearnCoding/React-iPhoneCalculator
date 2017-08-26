@@ -1,0 +1,8 @@
+# ignore dependencies
+node_modules/
+
+# ignore bower dependencies
+bower_components/
+
+# ignore npm cache directory
+.npm
