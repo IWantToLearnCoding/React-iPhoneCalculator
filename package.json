@@ -16,14 +16,7 @@
   ],
   "browserify": {
     "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ],
+      "babelify",
       "browserify-css"
     ]
   },
@@ -34,10 +27,12 @@
   },
   "homepage": "https://github.com/IWantToLearnCoding/React-iPhoneCalculator#readme",
   "devDependencies": {
-    "babel-preset-es2015": "^6.24.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "browserify": "^14.4.0",
     "browserify-css": "^0.12.0",
     "exorcist": "^0.4.0",
