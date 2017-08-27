@@ -1,0 +1,8 @@
+// This fixes the parse error while building JSX-react code.
+{
+  "presets": [
+    "es2015",
+    "stage-1",
+    "react"
+  ]
+}

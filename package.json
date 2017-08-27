@@ -14,6 +14,19 @@
     "react",
     "browserify"
   ],
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ],
+      "browserify-css"
+    ]
+  },
   "author": "vineet kapoor",
   "license": "MIT",
   "bugs": {
@@ -21,7 +34,19 @@
   },
   "homepage": "https://github.com/IWantToLearnCoding/React-iPhoneCalculator#readme",
   "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-react": "^6.24.1",
     "browserify": "^14.4.0",
-    "exorcist": "^0.4.0"
+    "browserify-css": "^0.12.0",
+    "exorcist": "^0.4.0",
+    "watchify": "^3.9.0"
+  },
+  "dependencies": {
+    "babel-preset-stage-1": "^6.24.1",
+    "babelify": "^7.3.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   }
 }
