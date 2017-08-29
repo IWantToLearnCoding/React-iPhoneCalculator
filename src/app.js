@@ -8,7 +8,9 @@ class Calculator extends React.Component {
         displayValue: '0',
         waitingForOperand: false,
         operationToPerform: '',
-        value: 0
+        value: 0,
+        operationToPerformWhenOnlyEqualisNext: '',
+        operandWhenOnlyEqualIsNext: ''
     };
 
     clearDisplay() {
@@ -16,7 +18,9 @@ class Calculator extends React.Component {
             displayValue: '0',
             waitingForOperand: false,
             operationToPerform: '',
-            value: 0
+            value: 0,
+            operationToPerformWhenOnlyEqualisNext: '',
+            operandWhenOnlyEqualIsNext: ''
         });
     }
 
@@ -74,7 +78,10 @@ class Calculator extends React.Component {
     }
 
     performOperation(operator) {
-        const { displayValue, operationToPerform, value } = this.state;
+        let { displayValue, operationToPerform, value, operationToPerformWhenOnlyEqualisNext, operandWhenOnlyEqualIsNext } = this.state;
+        if(displayValue === '.') {
+            displayValue = '0';// This takes care of the case when we enter . and press equal or any other operator.
+        }
         const operations = {
             '/' : (prevOperand, currentOperand) => Number(prevOperand)/ Number(currentOperand),
             '*' : (prevOperand, currentOperand) => Number(prevOperand) * Number(currentOperand),
@@ -84,18 +91,27 @@ class Calculator extends React.Component {
         }
 
         if(operationToPerform) {
-            const calculatedValue = String(operations[operationToPerform](value, displayValue))
+            let calculatedValue;
+            if(operationToPerform === '=' && operator === '=') {
+                calculatedValue = String(operations[operationToPerformWhenOnlyEqualisNext](value, operandWhenOnlyEqualIsNext));
+            } else {
+                calculatedValue = String(operations[operationToPerform](value, displayValue));
+            }
             this.setState({
                 displayValue: calculatedValue,
-                waitingForOperand: true,
-                operationToPerform: operator,
                 value: calculatedValue
-            })
-        } else {
-            this.setState({
-                waitingForOperand: true,
-                operationToPerform: operator
             });
+        }
+
+        this.setState({
+            waitingForOperand: true,
+            operationToPerform: operator
+        });
+        if(operator === '=' && operationToPerform !== '=') {
+            this.setState({
+                operationToPerformWhenOnlyEqualisNext: operationToPerform,
+                operandWhenOnlyEqualIsNext: displayValue
+            })
         }
     }
 
