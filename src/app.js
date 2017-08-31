@@ -70,10 +70,11 @@ class Calculator extends React.Component {
     calculatePercent() {
         let { displayValue } = this.state;
         if(displayValue !== '0') {
-            displayValue =  String(parseFloat(displayValue) / 100);
+            displayValue =  parseFloat(displayValue) / 100;
         }
         this.setState({
-            displayValue: displayValue
+            displayValue: displayValue,
+            value: displayValue // need to set value to displayValue coz calculating %age is like clearing previously calculated history after which only currently displayed value matters.
         })
     }
 
